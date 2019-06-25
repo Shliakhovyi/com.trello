@@ -18,6 +18,7 @@ public class BrowserFactory {
 
     @BeforeTest
     public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "/home/adminpdf/App/chromedriverv75/chromedriver");
         driver = new ChromeDriver();
         logger.info("BROWSER STARTED");
     }

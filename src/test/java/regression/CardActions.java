@@ -25,11 +25,11 @@ public class CardActions extends BrowserFactory {
     public BoardsPage boardsPage = new BoardsPage();
     public CardPage cardPage = new CardPage();
 
-    Card card = new Card("Test_Card_"+new Date().getTime());
+    Card card = new Card("Test_Card_" + new Date().getTime());
 
     @BeforeTest
     public void prepareData() throws IOException {
-        card = client.cardsService.createCard("5d1243d7c2b5517f63f3a07a", card).execute().body();
+        card = client.cardsService.createCard("5d1252f75c6b0e48b985b108", card).execute().body();
     }
 
     @AfterTest
@@ -40,8 +40,7 @@ public class CardActions extends BrowserFactory {
     @Test
     public void login(){
         loginPage.open();
-        loginPage.login("loliktestintegration@gmail.com", "iLoveBieber");
-       // boardsPage.openBoard("jacksparrowtitle");
+        loginPage.login("shliakhovyi.sviatoslav@pdffiller.team", "1qaz2WSX3edc");
     }
 
     @Test
@@ -59,8 +58,4 @@ public class CardActions extends BrowserFactory {
     public void rename(){
 
     }
-
-
-
-
 }

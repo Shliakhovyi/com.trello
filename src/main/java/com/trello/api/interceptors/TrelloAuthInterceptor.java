@@ -13,8 +13,8 @@ import java.io.IOException;
 public class TrelloAuthInterceptor implements Interceptor {
 
 
-    private static final String KEY = "8f0347d54812e3cb5acac34fd76fc70d";
-    private static final String TOKEN = "c3adec871babcea8f22d8a0de807eb7e7ced6d15122850a4e7efee197f77150f";
+    private static final String KEY = "7f33e345b802fc0c9844d257db991924";
+    private static final String TOKEN = "fb517dd4b0245eb701ba67e525dff219d7e4a2b704963ef9a7f0f845343af11e";
 
 
     @Override

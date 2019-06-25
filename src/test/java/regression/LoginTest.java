@@ -16,8 +16,8 @@ public class LoginTest extends BrowserFactory {
     @Test
     public void login() {
         loginPage.open();
-        loginPage.login("loliktestintegration@gmail.com", "iLoveBieber");
-        boardsPage.openBoard("jacksparrowtitle");
+        loginPage.login("shliakhovyi.sviatoslav@pdffiller.team", "1qaz2WSX3edc");
+        boardsPage.openBoard("testboardmain");
     }
 
 }
