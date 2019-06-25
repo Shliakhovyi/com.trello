@@ -34,7 +34,7 @@ public class CardActions extends BrowserFactory {
 
     @AfterTest
     public void clearData() throws IOException {
-        client.cardsService.deleteCard(card.id).execute();
+        //client.cardsService.deleteCard(card.id).execute();
     }
 
     @Test
@@ -45,7 +45,8 @@ public class CardActions extends BrowserFactory {
 
     @Test
     public void openCard(){
-        cardPage.open("");
+        boardsPage.openBoard("testboardmain");
+        cardPage.open(card.url);
     }
 
     @Test
