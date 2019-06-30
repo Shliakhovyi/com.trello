@@ -11,13 +11,13 @@ public class Card {
     public String idList;
     public String name;
     public String url;
+    public String due;
 
     public Card(){}
 
     public Card(String name){
         this.name = name;
     }
-
 
     @Override
     public String toString() {
@@ -28,7 +28,7 @@ public class Card {
                 ", idList='" + idList + '\'' +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
+                ", due='" + due + '\'' +
                 '}';
     }
-
 }
