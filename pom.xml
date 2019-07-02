@@ -61,17 +61,25 @@
         </dependency>
 
 
-        <!-- Logger slf4j-log4j12-->
+        <!-- Logger slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
         </dependency>
 
-        <!-- awaitility-->
+        <!-- awaitility -->
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
+            <version>3.1.6</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- awaitility-proxy -->
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility-proxy</artifactId>
             <version>3.1.6</version>
             <scope>test</scope>
         </dependency>

@@ -13,6 +13,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static com.trello.api.TrelloAutoLogin.loginByApi;
+import static org.awaitility.Awaitility.*;
+import static org.awaitility.proxy.AwaitilityClassProxy.to;
+import static org.hamcrest.Matchers.*;
 
 import java.io.IOException;
 import java.util.Date;
@@ -62,7 +65,7 @@ public class CardActions extends BrowserFactory {
     @Test
     public void addLabel() throws IOException {
         cardPage.addLabel("LabelTest");
-        closeCard();
+        await().untilCall(to(client.cardsService.getCardLabel(card.id).execute()).code(), equalTo(200));
         List<Labels> labels = client.cardsService.getCardLabel(card.id).execute().body();
         Assert.assertEquals(labels.get(0).name, "LabelTest", "Label name is not \"LabelTest\"");
     }
