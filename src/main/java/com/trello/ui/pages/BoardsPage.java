@@ -1,7 +1,9 @@
 package com.trello.ui.pages;
 
+import com.trello.ui.core.Constants;
 import com.trello.ui.core.Elem;
 import org.openqa.selenium.By;
+import static com.trello.ui.core.BrowserFactory.*;
 
 /**
  * Created by lolik on 20.06.2019
@@ -20,8 +22,8 @@ public class BoardsPage {
 
     }
 
-    public void isOpened(){
-
+    public boolean isOpened(){
+        return driver().getCurrentUrl().equals(Constants.URL+PATH);
     }
 
     public void openBoard(String urlName){

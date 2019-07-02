@@ -68,6 +68,14 @@
             <version>1.7.25</version>
         </dependency>
 
+        <!-- awaitility-->
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>3.1.6</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 

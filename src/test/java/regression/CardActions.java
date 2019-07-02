@@ -8,15 +8,11 @@ import com.trello.ui.core.BrowserFactory;
 import com.trello.ui.pages.BoardsPage;
 import com.trello.ui.pages.CardPage;
 import com.trello.ui.pages.LoginPage;
-import okhttp3.Response;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import static com.trello.api.TrelloAutoLogin.loginByApi;
 
 import java.io.IOException;
 import java.util.Date;
@@ -36,7 +32,7 @@ public class CardActions extends BrowserFactory {
     @BeforeTest
     public void prepareData() throws IOException {
         card = client.cardsService.createCard("5d1252f75c6b0e48b985b108", card).execute().body();
-        login();
+        loginByApi();
         openCard();
         System.out.println("id" + card.id);
     }
