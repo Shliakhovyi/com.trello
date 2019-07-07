@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.trello.ui.core.BrowserFactory;
 import com.trello.ui.pages.BoardsPage;
+import io.qameta.allure.Step;
 import okhttp3.Cookie;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 public class TrelloAutoLogin extends BrowserFactory {
 
+    @Step
     public static void loginByApi() throws IOException {
 
         CookieStorage cookieStorage = new CookieStorage();

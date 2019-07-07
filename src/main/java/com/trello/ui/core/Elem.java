@@ -1,5 +1,6 @@
 package com.trello.ui.core;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -31,10 +32,12 @@ public class Elem {
         return getWebDriverWait(10).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    @Step
     public void click(){
         find().click();
     }
 
+    @Step
     public void type(String text){
         find().clear();
         find().sendKeys(text);

@@ -1,6 +1,7 @@
 package com.trello.ui.pages;
 
 import com.trello.ui.core.Elem;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -47,6 +48,7 @@ public class CardPage {
         Assert.assertTrue(new BoardPage().isOpened(), "Board page is not opened");
     }
 
+    @Step
     public void addLabel(String labelName) {
         Elem closeLabelPopupBtn = new Elem(By.xpath("//a[@class='pop-over-header-close-btn icon-sm icon-close']"),
                 "Close Label Popup Button");

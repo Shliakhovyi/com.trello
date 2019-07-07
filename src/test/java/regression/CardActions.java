@@ -8,19 +8,20 @@ import com.trello.ui.core.BrowserFactory;
 import com.trello.ui.pages.BoardsPage;
 import com.trello.ui.pages.CardPage;
 import com.trello.ui.pages.LoginPage;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import static com.trello.api.TrelloAutoLogin.loginByApi;
-import static org.awaitility.Awaitility.*;
-import static org.awaitility.proxy.AwaitilityClassProxy.to;
-import static org.hamcrest.Matchers.*;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import static com.trello.api.TrelloAutoLogin.loginByApi;
+
+@Epic("Card Actions Tests")
 public class CardActions extends BrowserFactory {
 
     public TrelloRestClient client = new TrelloRestClient();
@@ -57,15 +58,17 @@ public class CardActions extends BrowserFactory {
         cardPage.open(card.url);
     }
 
+    @Story("closeCard test")
     @Test
     public void closeCard() {
         cardPage.closeCard();
     }
 
+    @Story("addLabel test")
     @Test
     public void addLabel() throws IOException {
         cardPage.addLabel("LabelTest");
-        await().untilCall(to(client.cardsService.getCardLabel(card.id).execute()).code(), equalTo(200));
+        closeCard();
         List<Labels> labels = client.cardsService.getCardLabel(card.id).execute().body();
         Assert.assertEquals(labels.get(0).name, "LabelTest", "Label name is not \"LabelTest\"");
     }
