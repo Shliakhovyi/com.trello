@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Exam">
+    <test name="CreateLabel">
+        <classes>
+            <class name="regression.ExamTests">
+                <methods>
+                    <include name="addLabel"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
