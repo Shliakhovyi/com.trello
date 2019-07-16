@@ -24,7 +24,10 @@ public class CardPage {
     private Elem saveDueDateBtn = new Elem(By.xpath("//input[@class='primary wide confirm']"), "Save Due Date Button");
     private Elem attachmentBtn = new Elem(By.xpath("//a[@title='Attachment']"), "Attachment Button");
     private Elem attachLinkFld = new Elem(By.xpath("//input[@id='addLink']"), "Attach Link Field");
+    private Elem deleteLabelBtn = new Elem(By.xpath("//*[@value='Delete']"), "Delete Label Button");
     private Elem attachBtn = new Elem(By.xpath("//input[@value='Attach']"), "Attach Field");
+    private Elem createdLabelBtn = new Elem(By.xpath("//*[@class='u-clearfix js-card-detail-labels-list js-edit-label']//*[@title='LabelNameForRename']"),
+            "Created Label Button");
     private Elem commentFld = new Elem(By.xpath("//textarea[@class='comment-box-input js-new-comment-input']"),
             "Comment Field");
     private Elem saveCommentBtn = new Elem(By.xpath("//input[@class='primary confirm mod-no-top-bottom-margin js-add-comment']"),
@@ -33,6 +36,8 @@ public class CardPage {
             "Description Field");
     private Elem saveDescriptionBtn = new Elem(By.xpath("//input[@class='primary confirm mod-submit-edit js-save-edit']"),
             "Save Description Button");
+    Elem closeLabelPopupBtn = new Elem(By.xpath("//a[@class='pop-over-header-close-btn icon-sm icon-close']"),
+            "Close Label Popup Button");
 
     public void open(String cardUrl){
         get(cardUrl);
@@ -50,11 +55,41 @@ public class CardPage {
 
     @Step
     public void addLabel(String labelName) {
-        Elem closeLabelPopupBtn = new Elem(By.xpath("//a[@class='pop-over-header-close-btn icon-sm icon-close']"),
-                "Close Label Popup Button");
         labelsBtn.click();
         createNewLabelBtn.click();
         newLabelNameFld.type(labelName);
+        createLabelBtn.click();
+        closeLabelPopupBtn.click();
+    }
+
+    @Step
+    public void deleteLabel(String labelName) {
+        Elem searchLabelFld = new Elem(By.xpath("//*[@placeholder='Search labels…']"),
+                "Search Label Field");
+        Elem editLabelBtn = new Elem(By.xpath("//*[@class='card-label-edit-button icon-sm icon-edit js-edit-label']"),
+                "Edit Label");
+        Elem createdLabelForDeleteBtn = new Elem(By.xpath("//*[@class='u-clearfix js-card-detail-labels-list js-edit-label']//*[@title='LabelTestForDelete']"),
+                "Created Label Button");
+        Elem lastDeleteLabelBtn = new Elem(By.xpath("//*[@class='js-confirm full negate']"),
+                "Last Delete Label Button");
+        createdLabelForDeleteBtn.click();
+        searchLabelFld.type(labelName);
+        editLabelBtn.click();
+        deleteLabelBtn.click();
+        lastDeleteLabelBtn.click();
+        closeLabelPopupBtn.click();
+    }
+
+    @Step
+    public void renameLabel(String oldLabelName, String newLabelName) {
+        Elem searchLabelFld = new Elem(By.xpath("//*[@placeholder='Search labels…']"),
+                "Search Label Field");
+        Elem editLabelBtn = new Elem(By.xpath("//*[@class='card-label-edit-button icon-sm icon-edit js-edit-label']"),
+                "Edit Label");
+        createdLabelBtn.click();
+        searchLabelFld.type(oldLabelName);
+        editLabelBtn.click();
+        newLabelNameFld.type(newLabelName);
         createLabelBtn.click();
         closeLabelPopupBtn.click();
     }

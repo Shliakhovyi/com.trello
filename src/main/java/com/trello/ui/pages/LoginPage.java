@@ -34,6 +34,7 @@ public class LoginPage {
         emailFld.type(email);
         passFld.type(password);
         loginBtn.click();
+        isOpened();
     }
 
 
